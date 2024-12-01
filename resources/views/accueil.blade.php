@@ -1,7 +1,7 @@
 @extends('global-template')
 @section('title', 'Accueil')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('storage/css/accueil.css') }}">
+    <link rel="stylesheet" href="{{ asset('/storage/css/accueil.css') }}">
 @endsection
 @section('content')
     <div class="container">

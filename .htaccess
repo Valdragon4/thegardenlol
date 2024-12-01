@@ -1,33 +1,4 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Rediriger toutes les requêtes vers le répertoire public
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteRule ^(.*)$ public/$1 [L]
-
-    # Rediriger toutes les requêtes vers index.php
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ public/index.php [L]
-</IfModule>
-
-# Empêcher l'accès direct aux fichiers sensibles
-<Files .env>
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files composer.json>
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files composer.lock>
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files .htaccess>
-    Order allow,deny
-    Deny from all
-</Files>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php [L]
